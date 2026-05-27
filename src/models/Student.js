@@ -68,6 +68,7 @@ const studentSchema = new mongoose.Schema({
   timestamps: true,
   toJSON: {
     transform(doc, ret) {
+      ret.id = ret._id.toString();
       delete ret.pin_hash;
       delete ret.__v;
       return ret;
